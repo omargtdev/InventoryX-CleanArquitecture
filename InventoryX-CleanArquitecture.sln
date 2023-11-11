@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryX-CleanArquitecture.Application", "InventoryX-CleanArquitecture.Application\InventoryX-CleanArquitecture.Application.csproj", "{957D4063-79C1-40C8-8A92-4A742F440FE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryX-CleanArquitecture.Domain", "InventoryX-CleanArquitecture.Domain\InventoryX-CleanArquitecture.Domain.csproj", "{4AC96FC6-AC26-49F3-A520-FD6B2B197A62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryX-CleanArquitecture.Infrastructure", "InventoryX-CleanArquitecture.Infrastructure\InventoryX-CleanArquitecture.Infrastructure.csproj", "{5F102328-B11C-4A2B-BE24-41A6205CCD39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryX-CleanArquitecture.API", "InventoryX-CleanArquitecture.API\InventoryX-CleanArquitecture.API.csproj", "{CFFBC9E5-C106-4F89-91EC-BFF26E1C59F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{957D4063-79C1-40C8-8A92-4A742F440FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957D4063-79C1-40C8-8A92-4A742F440FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957D4063-79C1-40C8-8A92-4A742F440FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{957D4063-79C1-40C8-8A92-4A742F440FE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC96FC6-AC26-49F3-A520-FD6B2B197A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC96FC6-AC26-49F3-A520-FD6B2B197A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC96FC6-AC26-49F3-A520-FD6B2B197A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC96FC6-AC26-49F3-A520-FD6B2B197A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F102328-B11C-4A2B-BE24-41A6205CCD39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F102328-B11C-4A2B-BE24-41A6205CCD39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F102328-B11C-4A2B-BE24-41A6205CCD39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F102328-B11C-4A2B-BE24-41A6205CCD39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFFBC9E5-C106-4F89-91EC-BFF26E1C59F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFFBC9E5-C106-4F89-91EC-BFF26E1C59F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFFBC9E5-C106-4F89-91EC-BFF26E1C59F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFFBC9E5-C106-4F89-91EC-BFF26E1C59F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
