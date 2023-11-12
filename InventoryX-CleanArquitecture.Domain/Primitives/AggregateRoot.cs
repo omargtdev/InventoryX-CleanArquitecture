@@ -1,6 +1,6 @@
 ﻿namespace InventoryX_CleanArquitecture.Domain.Primitives;
 
-public abstract class AggregateRoot
+public abstract class AggregateRoot : BaseEntity
 {
     private readonly List<DomainEvent> _domainEvents = new();
 

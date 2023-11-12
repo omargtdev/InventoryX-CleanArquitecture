@@ -25,13 +25,42 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext, IUnitOfWor
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {
+        var entries = ChangeTracker.Entries<BaseEntity>();
+
+        foreach(var entityEntry in entries)
+        {
+            if (entityEntry.State == EntityState.Added)
+            {
+                entityEntry.Property(e => e.UpdatedOn)
+                  .CurrentValue = DateTime.UtcNow;
+            }
+
+            if(entityEntry.State == EntityState.Modified)
+            {
+                entityEntry.Property(e => e.UpdatedOn)
+                  .CurrentValue = DateTime.UtcNow;
+            }
+              
+            if(entityEntry.State == EntityState.Deleted)
+            {
+                entityEntry.State = EntityState.Modified;
+                entityEntry.Property(e => e.DeletedOn)
+                    .CurrentValue= DateTime.UtcNow;
+                entityEntry.Property(e => e.IsDeleted)
+                    .CurrentValue = true;
+            }
+        }
+        
+
+        var result = await base.SaveChangesAsync(cancellationToken);
+
+        // Publishing the events
         var domainEvents = ChangeTracker.Entries<AggregateRoot>()
             .Select(e => e.Entity)
             .Where(e => e.DomainEvents.Any())
             .SelectMany(e => e.DomainEvents);
 
-        var result = await base.SaveChangesAsync(cancellationToken);
-        foreach(var domainEvent in domainEvents)
+        foreach (var domainEvent in domainEvents)
             await _publisher.Publish(domainEvent, cancellationToken);
 
         return result;

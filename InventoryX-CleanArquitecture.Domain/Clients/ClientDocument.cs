@@ -2,18 +2,20 @@
 
 namespace InventoryX_CleanArquitecture.Domain.Clients;
 
-public record ClientDocument
+public partial record ClientDocument
 {
     private const int DNILength = 8;
     private const int RUCLength = 11;
     private const int ImmigrationCardLength = 15;
-    private const string PatternRule = @"^\d$";
+    private const string PatternRule = @"^\d+$";
 
     private ClientDocument(DocumentType type, string number)
     {
         DocumentType = type;
         DocumentNumber = number;
     }
+
+    public ClientDocument() { }
 
     public static ClientDocument? Create(int type, string number)
     {

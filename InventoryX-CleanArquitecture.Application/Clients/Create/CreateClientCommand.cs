@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using ErrorOr;
+using InventoryX_CleanArquitecture.Domain.Clients;
+using MediatR;
 
 namespace InventoryX_CleanArquitecture.Application.Clients.Create;
 
@@ -9,4 +11,4 @@ public record CreateClientCommand(
     string PhoneNumber,
     int DocumentType,
     string DocumentNumber,
-    string Address) : IRequest<Unit>;
+    string Address) : IRequest<ErrorOr<ClientId>>;

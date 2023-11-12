@@ -21,6 +21,14 @@ public class ClientConfiguration : IEntityTypeConfiguration<Client>
         builder.Property(c => c.LastName)
             .HasMaxLength(150);
 
+        builder.Ignore(c => c.FullName);
+
+        builder.OwnsOne(c => c.Document, documentBuilder =>
+        {
+            documentBuilder.Property(d => d.DocumentType);
+            documentBuilder.Property(d => d.DocumentNumber);
+        });
+
         builder.Property(c => c.Email).HasConversion(
             email => email.Value,
             value => Email.Create(value)!);
