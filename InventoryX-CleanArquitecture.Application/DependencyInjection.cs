@@ -17,7 +17,7 @@ public static class DependencyInjection
             typeof(IPipelineBehavior<,>),
             typeof(ValidationBehavior<,>));
 
-        services.AddValidatorsFromAssemblyContaining<ApplicationAssemblyReference>();
+        services.AddValidatorsFromAssemblyContaining<ApplicationAssemblyReference>(includeInternalTypes: true);
 
         return services;
     }

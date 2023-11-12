@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="Clients\Delete\" />
-    <Folder Include="Clients\GetAll\" />
     <Folder Include="Clients\GetById\" />
     <Folder Include="Clients\Update\" />
   </ItemGroup>

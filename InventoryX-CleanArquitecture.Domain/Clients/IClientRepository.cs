@@ -6,5 +6,6 @@ public interface IClientRepository
 {
     Task<Client?> GetByIdAsync(ClientId id);
     Task Add(Client client);
-    Task<Client?> GetByEmailAsync(Email email);
+    Task<bool> IsEmailUniqueAsync(Email email);
+    Task<ICollection<Client>> GetAllAsync();
 }

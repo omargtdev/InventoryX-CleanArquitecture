@@ -1,4 +1,5 @@
 ﻿using InventoryX_CleanArquitecture.Application.Clients.Create;
+using InventoryX_CleanArquitecture.Application.Clients.GetAll;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,13 +15,23 @@ public class ClientsController : ApiController
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var getAllClientsResult = await _mediator.Send(new GetAllClientsQuery());
+
+        return getAllClientsResult.Match(
+            client => Ok(getAllClientsResult),
+            errors => Problem(errors));
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateClientCommand command)
     {
-        var createCustomerResult = await _mediator.Send(command);
+        var createClientResult = await _mediator.Send(command);
 
-        return createCustomerResult.Match(
-            customer => Ok(createCustomerResult.Value),
+        return createClientResult.Match(
+            client => Ok(createClientResult.Value),
             errors => Problem(errors));
     }
 }

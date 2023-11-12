@@ -15,8 +15,11 @@ public class ClientRepository : IClientRepository
 
     public async Task Add(Client client) => await _context.Clients.AddAsync(client);
 
-    public async Task<Client?> GetByEmailAsync(Email email) =>
-        await _context.Clients.SingleOrDefaultAsync(c => !c.IsDeleted && c.Email == email);
+    public async Task<ICollection<Client>> GetAllAsync() =>
+        await _context.Clients.Where(c => !c.IsDeleted).ToListAsync();
+
+    public async Task<bool> IsEmailUniqueAsync(Email email) =>
+        await _context.Clients.AnyAsync(c => !c.IsDeleted && c.Email != email);
 
     public async Task<Client?> GetByIdAsync(ClientId id) => await _context.Clients.SingleOrDefaultAsync(c => c.Id == id);
 }

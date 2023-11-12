@@ -35,9 +35,7 @@ public class CreateClientCommandValidator : AbstractValidator<CreateClientComman
 
         RuleFor(c => c.Email)
             .MustAsync(async (email, cancellation) =>
-            {
-                return await _clientRepository.GetByEmailAsync(Email.Create(email)!) is null;
-            })
+                await _clientRepository.IsEmailUniqueAsync(Email.Create(email)!))
             .WithMessage("Email already exists for the client!");
 
         RuleFor(c => c)
